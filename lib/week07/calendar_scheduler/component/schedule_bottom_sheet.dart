@@ -113,7 +113,8 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
 
     try {
       number = int.parse(val);
-      
+    } catch (e) {
+      return '숫자를 입력하여 주세요';
     }
   } // 시간값 검증
 
