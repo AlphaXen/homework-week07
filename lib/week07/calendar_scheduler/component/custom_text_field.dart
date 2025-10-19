@@ -1,6 +1,7 @@
 import 'package:myapp/week07/calendar_scheduler/const/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myapp/week07/calendar_scheduler/database/drift_database.dart';
 
 class CustomTextField extends StatelessWidget {
   final String label; // 텍스트 필드 제목
