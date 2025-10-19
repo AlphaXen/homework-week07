@@ -5,8 +5,11 @@ class TodayBanner extends StatelessWidget {
   final DateTime selectedDate; // 선택된 날짜
   final int count; // 일정 개수
 
-  const TodayBanner({required this.selectedDate, required this.count, Key? key})
-    : super(key: key);
+  const TodayBanner({
+    required this.selectedDate,
+    required this.count,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

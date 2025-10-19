@@ -8,7 +8,7 @@ import 'package:table_calendar/table_calendar.dart';
 
 // StatelessWidget에서 StatefulWidget으로 전환
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
