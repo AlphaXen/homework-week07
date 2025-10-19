@@ -5,9 +5,16 @@ import 'package:flutter/services.dart';
 class CustomTextField extends StatelessWidget {
   final String label; // 텍스트 필드 제목
   final bool isTime; // 시간 선택하는 텍스트 필드인지 여부
+  final FormFieldSetter<String> onSaved;
+  final FormFieldValidator<String> validator;
 
-  const CustomTextField({required this.label, required this.isTime, Key? key})
-    : super(key: key);
+  const CustomTextField({
+    required this.label,
+    required this.isTime,
+    required this.onSaved,
+    required this.validator,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +29,8 @@ class CustomTextField extends StatelessWidget {
         Expanded(
           flex: isTime ? 0 : 1,
           child: TextFormField(
+            onSaved: onSaved,
+            validator: validator,
             cursorColor: Colors.grey, // 커서 색상 변경
             maxLines: isTime ? 1 : null,
 
@@ -47,3 +56,5 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
+
+// Korewa Shirenda
