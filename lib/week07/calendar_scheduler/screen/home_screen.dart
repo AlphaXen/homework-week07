@@ -74,9 +74,11 @@ class _HomeScreen extends State<HomeScreen> {
                       final schedule = snapshot.data![index];
 
                       return Dismissible(
-                        key: ObjectKey(schedule.id),
+                        key: ObjectKey(schedule.id), // 유니크한 키값
                         direction: DismissDirection.startToEnd,
+                        // 밀기 방향(왼쪽에서 오른쪽으로)
                         onDismissed: (DismissDirection direction) {
+                          // 밀기 했을 때 실행할 함수
                           GetIt.I<LocalDatabase>().removeSchedule(schedule.id);
                         },
                         child: Padding(
