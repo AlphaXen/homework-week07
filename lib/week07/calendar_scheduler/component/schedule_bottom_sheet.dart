@@ -103,7 +103,14 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
   }
 
   void onSavePressed() {
-    if
+    if (formKey.currentState!.validate()) {
+      // 폼 검증하기
+      formKey.currentState!.save(); // 폼 저장하기
+
+      print(startTime);
+      print(endTime);
+      print(content);
+    }
   }
 
   String? timeValidator(String? val) {
