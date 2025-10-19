@@ -58,6 +58,10 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
                         // 종료 시간 입력 필드
                         label: '종료 시간',
                         isTime: true,
+                        onSaved: (String? val) {
+                          endTime = int.parse(val!);
+                        },
+                        validator: timeValidator,
                       ),
                     ),
                   ],
