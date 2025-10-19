@@ -70,8 +70,10 @@ class _HomeScreen extends State<HomeScreen> {
                     // 리스트에 입력할 값들의 총 개수
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) {
+                      // 현재 index에 해당되는 일정
                       final schedule = snapshot.data![index];
                       return Padding(
+                        // 좌우로 패딩을 추가해서 UI 개선
                         padding: const EdgeInsets.only(
                           bottom: 8.0,
                           left: 8.0,
