@@ -67,8 +67,18 @@ class _HomeScreen extends State<HomeScreen> {
                   return ListView.builder(
                     // 리스트에 입력할 값들의 총 개수
                     itemCount: snapshot.data!.length,
-                    item
-                  )
+                    itemBuilder: (context, index){
+                      final schedule = snapshot.data![index];
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
+                        child: ScheduleCard(
+                          startTime: schedule.startTime,
+                          endTime: schedule.endTime,
+                          content: schedule.content,
+                        ),
+                      );
+                    },
+                  );
                 },
               ),
             )
