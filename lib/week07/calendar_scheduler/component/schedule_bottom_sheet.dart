@@ -112,7 +112,13 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
       // 폼 검증하기
       formKey.currentState!.save(); // 폼 저장하기
 
-      await Getit
+      await GetIt.I<LocalDatabase>().createSchedule(
+        SchedulesCompanion(
+          startTime: Value(startTime!),
+          endTime: Value(endTime!),
+          date: Value(widget.selectedDate),
+        ),
+      );
     }
   }
 
