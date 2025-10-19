@@ -55,6 +55,19 @@ class _HomeScreen extends State<HomeScreen> {
               onDaySelected: onDaySelected, // 선택된 날짜
             ),
             SizedBox(height: 8.0),
+            Expanded(
+              child: StreamBuilder<List<Schedule>>(
+                stream: GetIt.I<LocalDatabase>().watchSchedules(selectedDate),
+                builder: (context, snapshot) {
+                  if(!snapshot.hasData){
+                    return Container();
+                  }
+                  return ListView.builder(
+                    itemCount: snapshot.data!.length,
+                  )
+                },
+              ),
+            )
             TodayBanner(
               // 배너 추가하기
               selectedDate: selectedDate,
