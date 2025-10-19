@@ -1,16 +1,14 @@
-import 'package:myapp/week06/calender_scheduler/component/custom_text_field.dart';
+import 'package:myapp/week07/calender_scheduler/component/custom_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/week06/calender_scheduler/const/colors.dart';
+import 'package:myapp/week07/calender_scheduler/const/colors.dart';
 import 'package:drift/drift.dart' hide Column;
 import 'package:get_it/get_it.dart';
-import 'package:myapp/week06/calender_scheduler/database/drift_database.dart';
+import 'package:myapp/week07/calender_scheduler/database/drift_database.dart';
 
 class ScheduleBottomSheet extends StatefulWidget {
   final DateTime selectedDate;
 
-  const ScheduleBottomSheet({
-    required this.selectedDate,
-    super.key});
+  const ScheduleBottomSheet({required this.selectedDate, super.key});
 
   @override
   State<ScheduleBottomSheet> createState() => _ScheduleBottomSheetState();
@@ -25,7 +23,6 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-
     // 키보드 높이 가져오기
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
 
@@ -34,16 +31,22 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
       child: Container(
         height: MediaQuery.of(context).size.height / 2 + bottomInset,
         color: Colors.white,
-        child: Padding(  
-          padding: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: bottomInset),
-          child: Column(  
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: 8,
+            right: 8,
+            top: 8,
+            bottom: bottomInset,
+          ),
+          child: Column(
             // 시간 관련 텍스트 필드와 내용 관련 텍스트 필드 세로로 배치
             children: [
-              Row(  
+              Row(
                 // 시작 시간, 종료 시간 가로로 배치
-                children: [  
-                  Expanded(  
-                    child: CustomTextField(     // 시작 시간 입력 필드
+                children: [
+                  Expanded(
+                    child: CustomTextField(
+                      // 시작 시간 입력 필드
                       label: '시작 시간',
                       isTime: true,
                       onSaved: (String? val) {
@@ -52,12 +55,13 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                       validator: timeValidator,
                     ),
                   ),
-                  const SizedBox(width: 16.0,),
-                  Expanded(  
-                    child: CustomTextField(     // 종료 시간 입력 필드
+                  const SizedBox(width: 16.0),
+                  Expanded(
+                    child: CustomTextField(
+                      // 종료 시간 입력 필드
                       label: '종료 시간',
                       isTime: true,
-                      onSaved: (String? val){
+                      onSaved: (String? val) {
                         endTime = int.parse(val!);
                       },
                       validator: timeValidator,
@@ -65,9 +69,9 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                   ),
                 ],
               ),
-              SizedBox(height: 8.0,),
-              Expanded(  
-                child: CustomTextField(  
+              SizedBox(height: 8.0),
+              Expanded(
+                child: CustomTextField(
                   label: '내용',
                   isTime: false,
                   onSaved: (String? val) {
@@ -76,12 +80,13 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                   validator: contentValidator,
                 ),
               ),
-              SizedBox(  
+              SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(      // [저장] 버튼
+                child: ElevatedButton(
+                  // [저장] 버튼
                   // [저장] 버튼
                   onPressed: onSavePressed,
-                  style: ElevatedButton.styleFrom(                    
+                  style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
                     backgroundColor: PRIMARY_COLOR,
                   ),
@@ -89,16 +94,16 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                 ),
               ),
             ],
-          ),          
+          ),
         ),
       ),
     );
-  } 
+  }
 
   void onSavePressed() async {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
-      
+
       await GetIt.I<LocalDatabase>().createSchedule(
         SchedulesCompanion(
           startTime: Value(startTime!),
@@ -133,7 +138,7 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
   }
 
   String? contentValidator(String? val) {
-    if(val == null || val.isEmpty) {
+    if (val == null || val.isEmpty) {
       return '값을 입력하여주세요';
     }
 
