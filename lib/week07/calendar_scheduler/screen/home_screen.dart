@@ -75,6 +75,10 @@ class _HomeScreen extends State<HomeScreen> {
 
                       return Dismissible(
                         key: ObjectKey(schedule.id),
+                        direction: DismissDirection.startToEnd,
+                        onDismissed: (DismissDirection direction) {
+                          GetIt.I<LocalDatabase>().removeSchedule(schedule.id);
+                        },
                       )
                       return Padding(
                         // 좌우로 패딩을 추가해서 UI 개선
