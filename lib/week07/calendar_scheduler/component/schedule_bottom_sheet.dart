@@ -21,6 +21,10 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
     // 키보드높이 가져오기
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
 
+    return Form(
+      key: formKey,
+      child: ,
+    )
     return SafeArea(
       child: Container(
         height: MediaQuery.of(context).size.height / 2 + bottomInset,
