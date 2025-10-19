@@ -80,20 +80,19 @@ class _HomeScreen extends State<HomeScreen> {
                           GetIt.I<LocalDatabase>().removeSchedule(schedule.id);
                         },
                         child: Padding(
-                        // 좌우로 패딩을 추가해서 UI 개선
-                        padding: const EdgeInsets.only(
-                          bottom: 8.0,
-                          left: 8.0,
-                          right: 8.0,
+                          // 좌우로 패딩을 추가해서 UI 개선
+                          padding: const EdgeInsets.only(
+                            bottom: 8.0,
+                            left: 8.0,
+                            right: 8.0,
+                          ),
+                          child: ScheduleCard(
+                            startTime: schedule.startTime,
+                            endTime: schedule.endTime,
+                            content: schedule.content,
+                          ),
                         ),
-                        child: ScheduleCard(
-                          startTime: schedule.startTime,
-                          endTime: schedule.endTime,
-                          content: schedule.content,
-                        ),
-                      );,
-                      )
-    
+                      );
                     },
                   );
                 },
