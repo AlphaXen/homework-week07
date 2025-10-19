@@ -46,7 +46,9 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
                         // 시작 시간 입력 필드
                         label: '시작 시간',
                         isTime: true,
-                        onSaved: (String? val) {},
+                        onSaved: (String? val) {
+                          startTime = int.parse(val!);
+                        },
                       ),
                     ),
                     const SizedBox(width: 16.0),
