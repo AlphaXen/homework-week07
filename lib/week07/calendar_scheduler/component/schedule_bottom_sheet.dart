@@ -107,7 +107,7 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
     );
   }
 
-  void onSavePressed() {
+  void onSavePressed() async {
     if (formKey.currentState!.validate()) {
       // 폼 검증하기
       formKey.currentState!.save(); // 폼 저장하기
@@ -119,6 +119,8 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
           date: Value(widget.selectedDate),
         ),
       );
+
+      Navigator.of(context).pop(); // 일정 생성 후 화면 뒤로 가기
     }
   }
 
