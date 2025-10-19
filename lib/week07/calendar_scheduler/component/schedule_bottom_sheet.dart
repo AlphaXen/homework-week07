@@ -102,7 +102,9 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
     );
   }
 
-  void onSavePressed() {}
+  void onSavePressed() {
+    if
+  }
 
   String? timeValidator(String? val) {
     // 시간 검증 함수
