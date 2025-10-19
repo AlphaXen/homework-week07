@@ -65,7 +65,9 @@ class _HomeScreen extends State<HomeScreen> {
                   }
                   // 화면에 보이는 값들만 렌더링하는 리스트
                   return ListView.builder(
+                    // 리스트에 입력할 값들의 총 개수
                     itemCount: snapshot.data!.length,
+                    item
                   )
                 },
               ),
