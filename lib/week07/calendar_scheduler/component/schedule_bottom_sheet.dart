@@ -75,9 +75,10 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
                     label: '내용',
                     isTime: false,
                     onSaved: (String? val) {
-                      startTime = int.parse(val!);
+                      // 저장이 실행되면 startTime 변수에 텍스트 필드값 저장
+                      content = val;
                     },
-                    validator: timeValidator,
+                    validator: contentValidator,
                   ),
                 ),
                 SizedBox(
