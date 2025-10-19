@@ -1,7 +1,9 @@
 import 'package:myapp/week07/calendar_scheduler/model/schedule.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
-import 'package:path'
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as p;
+import 'dart:io';
 
 // Private 값까지 불러울 수 있음
 part 'drift_database.g.dart'; // part 파일 지정
@@ -24,4 +26,5 @@ class LocalDatabase extends _$LocalDatabase {
   @override
   int get schemaVersion => 1;
 }
+
 // Code Generation으로 생성할 클래스 상속
