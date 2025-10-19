@@ -15,4 +15,5 @@ class LocalDatabase extends _$LocalDatabase {
 }
 // Code Generation으로 생성할 클래스 상속
 
-Future<int> createSchedule
+Future<int> createSchedule(SchedulesCompanion data) =>
+    into(schedules).insert(data);
