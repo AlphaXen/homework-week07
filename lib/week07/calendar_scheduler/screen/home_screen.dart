@@ -58,7 +58,13 @@ class _HomeScreen extends State<HomeScreen> {
             SizedBox(height: 8.0),
             StreamBuilder<List<Schedule>>(
               stream: GetIt.I<LocalDatabase>().watchSchedules(selectedDate),
-            )
+              builder: (context, snapshot) {
+                return TodayBanner(
+                  selectedDate: selectedDate,
+                  count: snapshot.data?.length ?? 0,
+                );
+              },
+            ),
             SizedBox(height: 8.0),
             Expanded(
               // 남는 공간을 모두 차지하기
