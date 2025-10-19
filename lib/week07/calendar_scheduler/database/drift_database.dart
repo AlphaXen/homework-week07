@@ -12,14 +12,14 @@ class LocalDatabase extends _$LocalDatabase {
   Stream<List<Schedule>> watchSchedules(DateTime date) =>
       // 데이터를 초기화하고 변화 감지
       (select(schedules)..where((tbl) => tbl.date.equals(date))).watch();
+
+  Future<int> createSchedule(SchedulesCompanion data) =>
+      into(schedules).insert(data);
+
+  Future<int> removeSchedule(int id) =>
+      (delete(schedules)..where((tbl) => tbl.id.equals(id))).go();
+
+  @override
+  int get schemaVersion => 1;
 }
 // Code Generation으로 생성할 클래스 상속
-
-Future<int> createSchedule(SchedulesCompanion data) =>
-    into(schedules).insert(data);
-
-Future<int> removeSchedule(ind id) =>
-    (delete(schedules)..where((tbl) => tbl.id.equals(id))).go();
-
-@override
-int get schemaVersion => 1;
