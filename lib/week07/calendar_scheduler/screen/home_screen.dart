@@ -56,7 +56,9 @@ class _HomeScreen extends State<HomeScreen> {
               onDaySelected: onDaySelected, // 선택된 날짜
             ),
             SizedBox(height: 8.0),
-            StreamBuilder<List<
+            StreamBuilder<List<Schedule>>(
+              stream: GetIt.I<LocalDatabase>().watchSchedules(selectedDate),
+            )
             SizedBox(height: 8.0),
             Expanded(
               // 남는 공간을 모두 차지하기
