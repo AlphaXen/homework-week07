@@ -10,6 +10,12 @@ class ScheduleBottomSheet extends StatefulWidget {
 }
 
 class _ScheduleBottomState extends State<ScheduleBottomSheet> {
+  final GlobalKey<FormState> formKey = GlobalKey(); // 폼 키 생성
+
+  int? startTime; //  시작 시간 저장 변수
+  int? endTime; // 종료 시간 저장 변수
+  String? content; // 일정 내용 저장 변수
+
   @override
   Widget build(BuildContext context) {
     // 키보드높이 가져오기
