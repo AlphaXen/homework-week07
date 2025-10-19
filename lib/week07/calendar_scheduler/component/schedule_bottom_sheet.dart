@@ -22,7 +22,8 @@ class _ScheduleBottomState extends State<ScheduleBottomSheet> {
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
 
     return Form(
-      key: formKey,
+      // 텍스트 필드를 한 번에 관리할 수 있는 폼
+      key: formKey, // From을 조작할 키값
       child: SafeArea(
         child: Container(
           height: MediaQuery.of(context).size.height / 2 + bottomInset,
