@@ -1,11 +1,11 @@
-import 'package:myapp/week07/calender_scheduler/const/colors.dart';
+import 'package:myapp/'
 import 'package:flutter/material.dart';
 
 class _Time extends StatelessWidget {
   final int startTime; // 시작 시간
   final int endTime; // 종료 시간
 
-  const _Time({required this.startTime, required this.endTime, super.key});
+  const _Time({required this.startTime, required this.endTime});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _Time extends StatelessWidget {
 class _Content extends StatelessWidget {
   final String content; // 내용
 
-  const _Content({required this.content, super.key});
+  const _Content({required this.content});
 
   @override
   Widget build(BuildContext context) {
