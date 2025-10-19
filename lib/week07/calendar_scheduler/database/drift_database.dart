@@ -17,3 +17,9 @@ class LocalDatabase extends _$LocalDatabase {
 
 Future<int> createSchedule(SchedulesCompanion data) =>
     into(schedules).insert(data);
+
+Future<int> removeSchedule(ind id) =>
+    (delete(schedules)..where((tbl) => tbl.id.equals(id))).go();
+
+@override
+int get schemaVersion => 1;
